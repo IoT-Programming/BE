@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebSocket Notifications</title>
+</head>
+<body>
+<h1>Real-time Notifications</h1>
+<div id="notifications"></div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const ws = new WebSocket("ws://localhost:8080/ws/notifications");
+
+      // WebSocket 연결 열기
+      ws.onopen = () => {
+          console.log("WebSocket connection established");
+
+          // 서버로 메시지 전송 (테스트용)
+          ws.send("Hello, Server!");
+      };
+
+      // 메시지 수신
+      ws.onmessage = (event) => {
+          try {
+              const notification = JSON.parse(event.data);
+              console.log("Notification content:", notification.content);
+
+              const notificationsDiv = document.getElementById("notifications");
+              const notificationElement = document.createElement("div");
+              notificationElement.textContent = "Notification: " + notification.content;
+              notificationsDiv.appendChild(notificationElement);
+          } catch (error) {
+              console.error("Failed to parse message:", event.data);
+          }
+      };
+
+
+      // 연결 닫힘
+      ws.onclose = () => {
+          console.log("WebSocket connection closed");
+      };
+
+      // 에러 처리
+      ws.onerror = (error) => {
+          console.error("WebSocket error:", error);
+      };
+  });
+</script>
+</body>
+</html>
