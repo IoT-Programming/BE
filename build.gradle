@@ -22,8 +22,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter:3.3.2'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator:3.3.5'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket:3.3.2'
 
-	implementation 'mysql:mysql-connector-java:8.0.33' // 안정적인 최신 버전
+	implementation 'mysql:mysql-connector-java:8.0.33'
 
 
 	implementation 'org.projectlombok:lombok:1.18.28'
