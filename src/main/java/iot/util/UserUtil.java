@@ -4,8 +4,7 @@ import iot.dto.SensorDto;
 import iot.repository.UserRepository;
 import iot.domain.User;
 
-import lombok.AllArgsConstructor;
-
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +15,7 @@ import static iot.util.StatusStandard.*;
 @Component
 public class UserUtil {
     @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public StatusStandard statusStandard;
 
@@ -26,7 +25,10 @@ public class UserUtil {
     public User findUser(String name){
         return userRepository.findUserByName(name);
     }
+    @Transactional
     public void switchStatus(User user, int overNum){
+        System.out.println(overNum);
+        System.out.println(user.getStatus());
         user.setStatus(overNum);
         userRepository.save(user);
     }
