@@ -25,13 +25,6 @@ public class UserUtil {
     public User findUser(String name){
         return userRepository.findUserByName(name);
     }
-    @Transactional
-    public void switchStatus(User user, int overNum){
-        System.out.println(overNum);
-        System.out.println(user.getStatus());
-        user.setStatus(overNum);
-        userRepository.save(user);
-    }
     public StatusStandard judgeAge(User user){
         int age = user.getAge();
         if(age >=10 && age<20){
@@ -49,7 +42,7 @@ public class UserUtil {
         int isOver = 0;
         LocalDate ld = LocalDate.now();
         int month = ld.getMonthValue();
-        if (month >= 6 && month <= 9) { // 온열질환
+        if (month >= 6 && month <= 9) {
             if (sensorDto.getAirTemp() >= statusStandard.getSummerAir()) {
                 isOver += 1;
             }
@@ -59,14 +52,14 @@ public class UserUtil {
             if (sensorDto.getPulse() >= statusStandard.getBpmMax()) {
                 isOver += 1;
             }
-        } else if (month >= 11 || month <= 3) { // 한랭질환
-            if (sensorDto.getAirTemp() <= statusStandard.getSummerAir()) {
+        } else if (month >= 11 || month <= 3) {
+            if (sensorDto.getAirTemp() <= statusStandard.getWinterAir()) {
                 isOver += 1;
             }
-            if (sensorDto.getBodyTemp() <= statusStandard.getBodyMax()) {
+            if (sensorDto.getBodyTemp() <= statusStandard.getBodyMin()) {
                 isOver += 1;
             }
-            if (sensorDto.getPulse() <= statusStandard.getBpmMax()) {
+            if (sensorDto.getPulse() <= statusStandard.getBpmMin()) {
                 isOver += 1;
             }
         }
