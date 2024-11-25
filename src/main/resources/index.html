@@ -23,17 +23,24 @@
       // 메시지 수신
       ws.onmessage = (event) => {
           try {
+              // 메시지가 JSON 형식인지 확인
               const notification = JSON.parse(event.data);
-              console.log("Notification content:", notification.content);
 
-              const notificationsDiv = document.getElementById("notifications");
-              const notificationElement = document.createElement("div");
-              notificationElement.textContent = "Notification: " + notification.content;
-              notificationsDiv.appendChild(notificationElement);
+              if (notification && notification.content) {
+                  console.log("Notification content:", notification.content);
+
+                  const notificationsDiv = document.getElementById("notifications");
+                  const notificationElement = document.createElement("div");
+                  notificationElement.textContent = "Notification: " + notification.content;
+                  notificationsDiv.appendChild(notificationElement);
+              } else {
+                  console.error("Invalid notification format:", notification);
+              }
           } catch (error) {
               console.error("Failed to parse message:", event.data);
           }
       };
+
 
 
       // 연결 닫힘
