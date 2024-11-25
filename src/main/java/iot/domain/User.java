@@ -20,7 +20,8 @@ public class User {
     private int age;
     private String phone;
     private String address;
-    private int status; // 1: 관심 2: 주의 3: 위험
+    private int status; // 0: 적절 1: 관심 2: 주의 3: 위험
+    private int prevStatus; // 0: 적절 1: 관심 2: 주의 3: 위험
     private String name;
     private double lan;
     private double lon;
