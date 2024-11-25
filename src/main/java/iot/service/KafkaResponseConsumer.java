@@ -19,17 +19,22 @@ public class KafkaResponseConsumer {
         return queue;
     }
 
-    @KafkaListener(topics = "ResponseTopic", groupId = "response-group", containerFactory = "kafkaListenerContainerFactory")
+    @KafkaListener(topics = "ResponseTopic", groupId = "response-group")
     public void consumeResponse(ConsumerRecord<String, SensorDto> record) {
         String correlationId = record.key();
-        SensorDto responseData = record.value();
+
+        if (correlationId == null) {
+            System.err.println("Received message with null key");
+            return; // 키가 null인 메시지를 무시하거나 별도로 처리
+        }
 
         SynchronousQueue<SensorDto> queue = responseMap.get(correlationId);
         if (queue != null) {
-            queue.offer(responseData); // 응답 전달
-            responseMap.remove(correlationId); // 매핑 제거
+            queue.offer(record.value());
+            responseMap.remove(correlationId);
         } else {
             System.err.println("No matching queue found for correlationId: " + correlationId);
         }
     }
+
 }

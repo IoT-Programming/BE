@@ -23,7 +23,7 @@ public class KafkaRequestConsumer {
     public void consume(SensorDto sensorDto) {
         User user = userUtil.findUser("John");
         sensorService.updateStatus(sensorDto, user);
-        notificationService.sendRealTimeNotification("Notification for " + user.getName());
+        notificationService.sendRealTimeNotification(user);
 
         kafkaTemplate.send("ResponseTopic", sensorDto); // SensorDto를 응답으로 전송
     }
