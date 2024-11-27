@@ -31,3 +31,11 @@ spring:
         spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
         spring.json.trusted.packages: "iot.dto"
         spring.json.value.default.type: "iot.dto.SensorDto"
+
+server:
+  tomcat:
+    websocket:
+      timeout: 60000 # WebSocket 타임아웃 (60초)
+    max-swallow-size: 2MB # 최대 메시지 크기 제한
+
+
