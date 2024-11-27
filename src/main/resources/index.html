@@ -10,7 +10,7 @@
 <div id="notifications"></div>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
-      const ws = new WebSocket("ws://localhost:8080/ws/notifications");
+      const ws = new WebSocket("ws://localhost:8081/ws/notifications");
 
       // WebSocket 연결 열기
       ws.onopen = () => {

@@ -4,6 +4,7 @@ spring:
 
   server:
     port: 8080
+    address: 0.0.0.0
 
   datasource:
     url: jdbc:mysql://localhost:3306/iot  # 데이터베이스 URL
@@ -32,10 +33,17 @@ spring:
         spring.json.trusted.packages: "iot.dto"
         spring.json.value.default.type: "iot.dto.SensorDto"
 
-server:
-  tomcat:
-    websocket:
-      timeout: 60000 # WebSocket 타임아웃 (60초)
-    max-swallow-size: 2MB # 최대 메시지 크기 제한
+    tomcat:
+      websocket:
+        timeout: 60000 # WebSocket 타임아웃 (60초)
+      max-swallow-size: 2MB # 최대 메시지 크기 제한
+
+logging:
+  level:
+    org:
+      springframework:
+        web:
+          socket: DEBUG
+        messaging: DEBUG
 
 
