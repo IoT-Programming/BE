@@ -41,7 +41,7 @@ public class SensorService {
 
         // 비즈니스 로직 수행
         updateStatus(sensorDto, user);
-        notificationService.sendRealTimeNotification(user);
+        notificationService.sendRealTimeNotification(user, sensorDto);
 
         // Kafka 응답 전송
         kafkaTemplate.send("ResponseTopic", sensorDto);

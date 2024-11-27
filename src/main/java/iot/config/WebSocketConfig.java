@@ -13,7 +13,8 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(new SensorWebSocketHandler(), "/ws/notifications")
-                .setAllowedOrigins("*"); // 모든 도메인 허용
+                .setAllowedOrigins("http://localhost:3000"); // React 앱 URL
     }
+
 }
 

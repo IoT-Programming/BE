@@ -24,7 +24,6 @@ public class KafkaResponseConsumer {
         String correlationId = record.key();
 
         if (correlationId == null) {
-            System.err.println("Received message with null key");
             return; // 키가 null인 메시지를 무시하거나 별도로 처리
         }
 

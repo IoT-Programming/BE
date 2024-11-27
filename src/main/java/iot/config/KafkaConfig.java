@@ -14,7 +14,9 @@ import org.springframework.kafka.core.*;
 import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
+import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.util.backoff.FixedBackOff;
+import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -59,4 +61,5 @@ public class KafkaConfig {
     public KafkaTemplate<String, SensorDto> kafkaTemplate() {
         return new KafkaTemplate<>(producerFactory());
     }
+
 }

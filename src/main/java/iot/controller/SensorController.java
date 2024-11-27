@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/sensor")
+@CrossOrigin("http://localhost:3000")
 @RequiredArgsConstructor
 public class SensorController {
 
@@ -46,7 +47,7 @@ public class SensorController {
             @RequestBody SensorDto sensorDto) {
         User user = userUtil.findUser("John");
         sensorService.updateStatus(sensorDto, user);
-        notificationService.sendRealTimeNotification(user);
+        notificationService.sendRealTimeNotification(user, sensorDto);
         return ResponseEntity.ok().body(sensorDto);
     }
 
