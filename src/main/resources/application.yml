@@ -22,7 +22,7 @@ spring:
 
   kafka:
     consumer:
-      bootstrap-servers: localhost:9092
+      bootstrap-servers: 34.69.7.102:9092
       group-id: sensor-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringSerializer
