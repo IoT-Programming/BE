@@ -21,6 +21,6 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(sensorWebSocketHandler, "/ws/notifications")
-                .setAllowedOrigins("http://localhost:3000"); // 클라이언트 도메인 허용
+                .setAllowedOrigins("*"); // 클라이언트 도메인 허용
     }
 }
