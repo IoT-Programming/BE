@@ -2,7 +2,7 @@ name: CI / CD
 
 on:
   push:
-    branches: [merged#2]
+    branches: [BE-jinyoung]
 
 jobs:
   CI:
