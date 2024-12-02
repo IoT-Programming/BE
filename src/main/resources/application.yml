@@ -7,7 +7,7 @@ spring:
     address: 0.0.0.0
 
   datasource:
-    url: jdbc:mysql://34.173.122.51:3306/iot  # 데이터베이스 URL
+    url: jdbc:mysql://localhost:3306/iot  # 데이터베이스 URL
     username: root                          # 데이터베이스 사용자 이름
     password: keypass                              # 데이터베이스 비밀번호
     driver-class-name: com.mysql.cj.jdbc.Driver          # MySQL 드라이버 클래스
@@ -22,7 +22,7 @@ spring:
 
   kafka:
     consumer:
-      bootstrap-servers: 34.69.7.102:9092
+      bootstrap-servers: localhost:9092
       group-id: sensor-group
       auto-offset-reset: earliest
       key-deserializer: org.apache.kafka.common.serialization.StringSerializer
