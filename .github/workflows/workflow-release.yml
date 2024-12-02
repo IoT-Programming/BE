@@ -10,7 +10,7 @@ jobs:
 
     env:
       GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-      IMAGE_NAME: deploy-test
+      IMAGE_NAME: iotproject
       IMAGE_TAG: ${{ github.sha }}
       MYSQL_PASSWORD: ${{secrets.MYSQL_PASSWORD }}
 
