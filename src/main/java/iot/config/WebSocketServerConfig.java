@@ -12,13 +12,22 @@ public class WebSocketServerConfig {
     @Bean
     public WebServerFactoryCustomizer<TomcatServletWebServerFactory> customWebServerFactory() {
         return factory -> {
-            factory.addAdditionalTomcatConnectors(createWebSocketConnector());
+            // SSL을 사용하는 Connector 설정
+            Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
+            connector.setPort(8081); // WSS 포트
+            connector.setSecure(true);
+            connector.setScheme("https");
+
+            // keystore 설정
+            connector.setProperty("keystoreFile", "file:/app/keystore.p12");  // keystore 위치
+            connector.setProperty("keystorePass", "keypass");  // keystore 비밀번호
+            connector.setProperty("keyAlias", "tomcat"); // 키 별칭 (필요에 따라 설정)
+            connector.setProperty("keystoreType", "PKCS12");
+            connector.setProperty("sslProtocol", "TLS");
+
+            // WebSocket over SSL을 위해 SSL Connector 추가
+            factory.addAdditionalTomcatConnectors(connector);
         };
     }
 
-    private Connector createWebSocketConnector() {
-        Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
-        connector.setPort(8443); // WebSocket 포트
-        return connector;
-    }
 }
