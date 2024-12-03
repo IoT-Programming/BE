@@ -47,7 +47,7 @@ server:
     address: 0.0.0.0
     ssl:
       enabled: true
-      key-store: keystore.p12
+      key-store: file:/app/keystore.p12
       key-store-password: keypass
       key-store-type: PKCS12
       protocol: TLS
