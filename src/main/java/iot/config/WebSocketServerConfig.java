@@ -18,7 +18,7 @@ public class WebSocketServerConfig {
 
     private Connector createWebSocketConnector() {
         Connector connector = new Connector(TomcatServletWebServerFactory.DEFAULT_PROTOCOL);
-        connector.setPort(8081); // WebSocket 포트
+        connector.setPort(8080); // WebSocket 포트
         return connector;
     }
 }
