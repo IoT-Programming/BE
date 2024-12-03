@@ -54,3 +54,6 @@ server:
       enabled-protocols: TLSv1.2
 
 
+
+websocket:
+  port: 8443
