@@ -14,7 +14,7 @@ public class WebSocketServerConfig {
         return factory -> {
             // SSL을 사용하는 Connector 설정
             Connector connector = new Connector("org.apache.coyote.http11.Http11NioProtocol");
-            connector.setPort(8081); // WSS 포트
+            connector.setPort(8080); // WSS 포트
             connector.setSecure(true);
             connector.setScheme("https");
 
