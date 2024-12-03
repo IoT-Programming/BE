@@ -80,4 +80,5 @@ jobs:
             --name ${IMAGE_NAME} \
             --network compose_default \
             -p 8080:8080 \
+            -p 8081:8081 \
             us-central1-docker.pkg.dev/${GCP_PROJECT_ID}/iotproject/${IMAGE_NAME}:${IMAGE_TAG}
