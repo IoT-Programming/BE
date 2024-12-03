@@ -49,7 +49,7 @@ public class UserUtil {
             if (sensorDto.getBodyTemp() >= statusStandard.getBodyMax()) {
                 isOver += 1;
             }
-            if (sensorDto.getPulse() >= statusStandard.getBpmMax()) {
+            if (sensorDto.getBpm() >= statusStandard.getBpmMax()) {
                 isOver += 1;
             }
         } else if (month >= 11 || month <= 3) {
@@ -59,7 +59,7 @@ public class UserUtil {
             if (sensorDto.getBodyTemp() <= statusStandard.getBodyMin()) {
                 isOver += 1;
             }
-            if (sensorDto.getPulse() <= statusStandard.getBpmMin()) {
+            if (sensorDto.getBpm() <= statusStandard.getBpmMin()) {
                 isOver += 1;
             }
         }
