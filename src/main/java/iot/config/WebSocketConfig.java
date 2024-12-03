@@ -20,7 +20,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(sensorWebSocketHandler, "/wss/notifications")
+        registry.addHandler(sensorWebSocketHandler, "/ws/notifications")
                 .setAllowedOrigins("*"); // 클라이언트 도메인 허용
     }
 }

@@ -43,17 +43,5 @@ logging:
         messaging: DEBUG
 
 server:
-    port: 8444
+    port: 8080
     address: 0.0.0.0
-    ssl:
-      enabled: true
-      key-store: file:/app/keystore.p12
-      key-store-password: keypass
-      key-store-type: PKCS12
-      protocol: TLS
-      enabled-protocols: TLSv1.2
-
-
-
-websocket:
-  port: 8443
