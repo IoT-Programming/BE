@@ -15,10 +15,7 @@ import static iot.util.StatusStandard.*;
 
 @Service
 public class SensorService {
-    private KafkaTemplate <String, SensorDto> kafkaTemplate;
     private UserRepository userRepository;
-    private StatusStandard statusStandard;
-    private NotificationService notificationService;
     private UserUtil userUtil;
 
     public SensorService(UserRepository userRepository, UserUtil userUtil){
@@ -32,18 +29,5 @@ public class SensorService {
         int overNum = userUtil.calculateValue(sensorDto, userUtil.judgeAge(user));
         user.setStatus(overNum);
         userRepository.save(user);
-    }
-    public void processSensorData(SensorDto sensorDto) {
-        User user = userUtil.findUser("John");
-        if (user == null) {
-            throw new IllegalArgumentException("User not found");
-        }
-
-        // 비즈니스 로직 수행
-        updateStatus(sensorDto, user);
-        notificationService.sendRealTimeNotification(user, sensorDto);
-
-        // Kafka 응답 전송
-        kafkaTemplate.send("ResponseTopic", sensorDto);
     }
 }

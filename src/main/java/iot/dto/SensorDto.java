@@ -4,7 +4,7 @@ import lombok.Getter;
 
 @Getter
 public class SensorDto {
-    public double pulse;
+    public double bpm;
     public double bodyTemp;
     public double airTemp;
     public double lan;

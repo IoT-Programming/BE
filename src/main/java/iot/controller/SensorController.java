@@ -2,7 +2,7 @@ package iot.controller;
 
 import iot.domain.User;
 import iot.dto.SensorDto;
-import iot.service.KafkaRequestProducer;
+//import iot.service.KafkaRequestProducer;
 import iot.service.NotificationService;
 import iot.service.SensorService;
 import iot.util.UserUtil;
@@ -25,7 +25,7 @@ public class SensorController {
     @Autowired
     private UserUtil userUtil;
 
-    private final KafkaRequestProducer producer;
+    //private final KafkaRequestProducer producer;
     private final KafkaTemplate<String, SensorDto> kafkaTemplate;
 
     // GET 요청 처리
