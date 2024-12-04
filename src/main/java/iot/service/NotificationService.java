@@ -26,7 +26,7 @@ public class NotificationService {
         CompletableFuture.runAsync(() -> {
             try {
                 ResponseDto.ResponseDtoBuilder responseDtoBuilder= ResponseDto.builder()
-                        .bpm(sensorDto.getBpm())
+                        .BPM(sensorDto.getBPM())
                         .bodyTemp(sensorDto.getBodyTemp())
                         .airTemp(sensorDto.getAirTemp())
                         .lan(sensorDto.getLan())
