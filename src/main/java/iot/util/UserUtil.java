@@ -43,20 +43,20 @@ public class UserUtil {
         LocalDate ld = LocalDate.now();
         int month = ld.getMonthValue();
         if (month >= 6 && month <= 9) {
-            if (sensorDto.getAirTemp() >= statusStandard.getSummerAir()) {
+            if (sensorDto.getAir() >= statusStandard.getSummerAir()) {
                 isOver += 1;
             }
-            if (sensorDto.getBodyTemp() >= statusStandard.getBodyMax()) {
+            if (sensorDto.getBody() >= statusStandard.getBodyMax()) {
                 isOver += 1;
             }
             if (sensorDto.getBPM() >= statusStandard.getBpmMax()) {
                 isOver += 1;
             }
         } else if (month >= 11 || month <= 3) {
-            if (sensorDto.getAirTemp() <= statusStandard.getWinterAir()) {
+            if (sensorDto.getAir() <= statusStandard.getWinterAir()) {
                 isOver += 1;
             }
-            if (sensorDto.getBodyTemp() <= statusStandard.getBodyMin()) {
+            if (sensorDto.getBody() <= statusStandard.getBodyMin()) {
                 isOver += 1;
             }
             if (sensorDto.getBPM() <= statusStandard.getBpmMin()) {

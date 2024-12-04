@@ -27,8 +27,8 @@ public class NotificationService {
             try {
                 ResponseDto.ResponseDtoBuilder responseDtoBuilder= ResponseDto.builder()
                         .BPM(sensorDto.getBPM())
-                        .bodyTemp(sensorDto.getBodyTemp())
-                        .airTemp(sensorDto.getAirTemp())
+                        .body(sensorDto.getBody())
+                        .air(sensorDto.getAir())
                         .lan(sensorDto.getLan())
                         .lon(sensorDto.getLon());
 //                String message = "pulse: " + sensorDto.getPulse()

@@ -10,8 +10,8 @@ import lombok.Getter;
 @AllArgsConstructor
 public class ResponseDto {
     public double BPM;
-    public double bodyTemp;
-    public double airTemp;
+    public double body;
+    public double air;
     public double lan;
     public double lon;
 
