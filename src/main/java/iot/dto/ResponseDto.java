@@ -9,7 +9,7 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class ResponseDto {
-    public double bpm;
+    public double BPM;
     public double bodyTemp;
     public double airTemp;
     public double lan;
